@@ -1,13 +1,30 @@
-import React from 'react'
+import React from 'react';
+import './CashRegister.css';
+import {Redirect} from 'react-router-dom';
 
 class CashRegister extends React.Component{
+
+    constructor(props)
+    {
+        super(props);
+    }
+
+
     render()
     {
+        let dataExists = false;
+        if('denominations' in this.props.location)
+        {
+            dataExists = true;
+            console.log(dataExists);
+
+        }
         return(
+            dataExists ?
             <div className="register">
                 <div className="denominations">
                     <h1>Penny</h1>
-                    <p>$0.01</p>
+                    <p>{this.props.location.denominations.Penny}</p>
                 </div>
                 <div className="denominations">
                     <h1>Dime</h1>
@@ -40,7 +57,7 @@ class CashRegister extends React.Component{
                     <h1>$100</h1>
                     <p>$0.01</p>
                 </div>
-            </div>
+            </div> : <Redirect to="/"/>
         );    
     }
 }
