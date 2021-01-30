@@ -1,0 +1,25 @@
+.denominations {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px;
+    height: 12vh;
+  }
+  
+  
+  .register {
+    width: 90%;
+    height: 60vh;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(3, 33%);
+    grid-auto-flow: row;
+    margin: 5%;
+    align-items: center;
+  }
+  
+  h1{
+    font-size: 5vh;  
+  }

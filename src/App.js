@@ -1,43 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter, Route}  from 'react-router-dom';
+import Navigation from './Navigation';
+import About from './About';
+import Home from './Home';
 
-function Header(){
+class  App extends React.Component{
+
+
+  render(){
   return (
-    <div>
-      <input type = "text" onKeyPress={handleClick}/>
-    </div>
-  )
+      <div>
+        <Navigation />
+          <Route exact path = '/' component = {Home}/>
+          <Route path = '/about' component = {About}/>
+      </div>
+
+  );
+  }
 }
-
-function handleClick()
-{
-  document.getElementById("App").style.color= "red";
-}
-
-function App() {
-  return(
-    <div className="App" >
-      <Header />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          id ="App"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-
-  )
-}
-
 
 
 export default App;
