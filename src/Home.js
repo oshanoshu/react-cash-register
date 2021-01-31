@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
-
 class Home extends React.Component{
     constructor(props)
     {
@@ -40,6 +39,7 @@ class Home extends React.Component{
 
     handleSubmit(event)
     {
+        event.preventDefault();
         this.props.history.push({
             pathname: '/cashregister',
             denominations: this.state
@@ -50,57 +50,57 @@ class Home extends React.Component{
     {
         return(
             
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} style = {{margin: 15}}>
                 <Form.Row>
                     <Form.Group as = {Col} controlId="Penny">
                         <Form.Label>Penny</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Penny} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Penny} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="Dime">
                         <Form.Label>Dime</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Dime} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Dime} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="Nickel">
                         <Form.Label>Nickel</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Nickel} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Nickel} onChange ={this.handleChange}/>
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
                     <Form.Group as = {Col} controlId="Quarter">
                         <Form.Label>Quarter</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Quarter} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Quarter} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="One">
                         <Form.Label>$1</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.One} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.One} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="Two">
                         <Form.Label>$2</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Two} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Two} onChange ={this.handleChange}/>
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
                     <Form.Group as = {Col} controlId="Five">
                         <Form.Label>$5</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Five} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Five} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="Ten">
                         <Form.Label>$10</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Ten} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Ten} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="Twenty">
                         <Form.Label>$20</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Twenty} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Twenty} onChange ={this.handleChange}/>
                     </Form.Group>
                 </Form.Row>
                 <Form.Row>
                     <Form.Group as = {Col} controlId="Fifty">
                         <Form.Label>$50</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.Fifty} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Fifty} onChange ={this.handleChange}/>
                     </Form.Group>
                     <Form.Group as = {Col} controlId="OneHundred">
                         <Form.Label>$100</Form.Label>
-                        <Form.Control type="number" placeholder="0" value = {this.state.OneHundred} onChange ={this.handleChange}/>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.OneHundred} onChange ={this.handleChange}/>
                     </Form.Group>
                 </Form.Row>
                 <Button variant="primary" type="submit">
@@ -110,5 +110,6 @@ class Home extends React.Component{
         );    
     }
 }
+
 
 export default Home;

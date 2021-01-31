@@ -1,12 +1,16 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Navbar } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
  
 const Navigation = () => {
     return (
        <div>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Navbar bg="light">
+            <Navbar.Brand href="/">
+               Amazing Register
+            </Navbar.Brand>
+         </Navbar>
        </div>
     );
 }
