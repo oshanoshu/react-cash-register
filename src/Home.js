@@ -19,7 +19,8 @@ class Home extends React.Component{
             Ten: 0,
             Twenty: 0,
             Fifty: 0,
-            OneHundred: 0
+            OneHundred: 0,
+            Debit: 0,
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -101,6 +102,10 @@ class Home extends React.Component{
                     <Form.Group as = {Col} controlId="OneHundred">
                         <Form.Label>$100</Form.Label>
                         <Form.Control type="number" placeholder="0" min = "0" value = {this.state.OneHundred} onChange ={this.handleChange}/>
+                    </Form.Group>
+                    <Form.Group as = {Col} controlId="Debit">
+                        <Form.Label>Bank Balance</Form.Label>
+                        <Form.Control type="number" placeholder="0" min = "0" value = {this.state.Debit} onChange ={this.handleChange}/>
                     </Form.Group>
                 </Form.Row>
                 <Button variant="primary" type="submit">
