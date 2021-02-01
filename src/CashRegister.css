@@ -4,22 +4,8 @@
     border-radius: 5px;
     padding: 20px;
     margin: 5px;
-    height: 12vh;
-  }
-  
-  
-  .register {
-    width: 90%;
-    height: 60vh;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(3, 33%);
-    grid-template-rows: repeat(3, 33%);
-    grid-auto-flow: row;
-    margin: 5%;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
-  
-  h1{
-    font-size: 5vh;  
   }

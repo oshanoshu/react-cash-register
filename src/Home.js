@@ -49,7 +49,7 @@ class Home extends React.Component{
     render()
     {
         return(
-            
+            <div>
             <Form onSubmit={this.handleSubmit} style = {{margin: 15}}>
                 <Form.Row>
                     <Form.Group as = {Col} controlId="Penny">
@@ -107,6 +107,7 @@ class Home extends React.Component{
                 Submit
                 </Button>
             </Form>
+            </div>
         );    
     }
 }

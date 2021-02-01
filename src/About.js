@@ -1,5 +1,5 @@
 const About = () => {
-    return <h1>This is about page</h1>
+    return <div style = {{margin: 10}}>This is a simple cash register you can use for your business. </div>
 };
 
 export default About;

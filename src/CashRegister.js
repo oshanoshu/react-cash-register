@@ -1,6 +1,7 @@
 import React from 'react';
 import './CashRegister.css';
 import {Redirect} from 'react-router-dom';
+import {Container, Col, Row} from 'react-bootstrap';
 
 const denominations = {'OneHundred': 100, 'Fifty': 50, 'Twenty': 20, 'Ten': 10, 'Five': 5, 'Two': 2, 'One': 1, 'Quarter': 0.25, 'Dime': 0.1, 'Nickel': 0.05,'Penny': 0.01};
 
@@ -67,45 +68,84 @@ class CashRegister extends React.Component{
         }
         return(
             dataExists ?
-            <div className="register">
-                <div className="denominations">
-                    Penny: {this.state.Penny}
-                </div>
-                <div className="denominations">
-                    Dime: {this.state.Dime}
-
-                </div>
-                <div className="denominations">
-                    Nickel: {this.state.Nickel}
-                </div>
-                <div className="denominations">
-                    Quarter: {this.state.Quarter}
-                </div>
-                <div className="denominations">
-                    $1: {this.state.One}
-                </div>
-                <div className="denominations">
-                    $2: {this.state.One}
-                </div>
-                <div className="denominations">
-                    $5: {this.state.Five}
-                </div>
-                <div className="denominations">
-                    $10: {this.state.Ten}
-                </div>
-                <div className="denominations">
-                    $20: {this.state.Twenty}
-                </div>
-                <div className="denominations">
-                    $50: {this.state.Fifty}
-                </div>
-                <div className="denominations">
-                    $100: {this.state.OneHundred}
-                </div>
-                <div className="denominations">
-                    Cash: {this.state.Cash}
-                </div>
-            </div> : <Redirect to="/"/>
+            <Container>
+                <Row>
+                    <Col>
+                        This is for checking out items.
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Container>
+                    <Row>
+                        <Col>
+                            <div className="denominations">
+                                <div>Penny </div>
+                                <div>{this.state.Penny}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>Dime </div>
+                                <div>{this.state.Dime}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>Nickel </div>
+                                <div>{this.state.Nickel}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>Quarter </div>
+                                <div>{this.state.Quarter}</div>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="denominations">
+                                <div>$1 </div>
+                                <div>{this.state.One}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>$2 </div>
+                                <div>{this.state.Two}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>$5 </div>
+                                <div>{this.state.Five}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>$10 </div>
+                                <div>{this.state.Ten}</div>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="denominations">
+                                <div>$20 </div>
+                                <div>{this.state.Twenty}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>$50 </div>
+                                <div>{this.state.Fifty}</div>
+                            </div>
+                            <div className="denominations">
+                                <div>$100 </div>
+                                <div>{this.state.OneHundred}</div>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        <div className="denominations">
+                            <div>Cash </div>
+                            <div>
+                            ${this.state.Cash.toFixed(2)}
+                            </div>
+                        </div>
+                        </Col>
+                    </Row>
+                </Container>
+                    </Col>
+                    <Col>
+                        This is for groceries.
+                    </Col>
+                </Row>
+            </Container> : <Redirect to="/"/>
         );    
     }
 }
