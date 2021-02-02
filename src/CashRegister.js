@@ -1,7 +1,7 @@
 import React from 'react';
 import './CashRegister.css';
 import {Redirect} from 'react-router-dom';
-import {Container, Col, Row, InputGroup, FormControl, Form, Button} from 'react-bootstrap';
+import {Container, Col, Row, Form, Button} from 'react-bootstrap';
 
 const denominations = {'OneHundred': 100, 'Fifty': 50, 'Twenty': 20, 'Ten': 10, 'Five': 5, 'Two': 2, 'One': 1, 'Quarter': 0.25, 'Dime': 0.1, 'Nickel': 0.05,'Penny': 0.01};
 
@@ -40,7 +40,7 @@ class CashRegister extends React.Component{
         {
             console.log(this.state.Cost)
             this.setState((state) => ({
-                Debit: state.Debit + state.Cost
+                Debit: Number(state.Debit) + Number(state.Cost)
             }))
         }
         else
@@ -113,8 +113,8 @@ class CashRegister extends React.Component{
                         </Form.Group>
                         <Form.Group controlId="Method">
                             <Form.Label>Payment Method &nbsp;</Form.Label>
-                            <Form.Check type="radio" label="Cash"  value="cash" onChange={this.handleChange}/>
-                            <Form.Check type="radio" label="Debit" value="debit" onChange={this.handleChange}/>
+                            <Form.Check type="radio" label="Cash"  value="cash" checked={this.state.Method==="cash"} onChange={this.handleChange}/>
+                            <Form.Check type="radio" label="Debit" value="debit" checked={this.state.Method==="debit"} onChange={this.handleChange}/>
                         </Form.Group>
                         <Button variant="outline-success" type="submit">
                             Submit
@@ -122,7 +122,7 @@ class CashRegister extends React.Component{
                     </Form>
                     </Col>
                     <Col>
-
+                        This is for something
                     </Col>
                 </Row>
                 <Row>
@@ -130,85 +130,99 @@ class CashRegister extends React.Component{
                         This is for groceries.
                     </Col>
                     <Col>
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <div className="denominations">
-                                        <div>Penny </div>
-                                        <div>{this.state.Penny}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>Dime </div>
-                                        <div>{this.state.Dime}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>Nickel </div>
-                                        <div>{this.state.Nickel}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>Quarter </div>
-                                        <div>{this.state.Quarter}</div>
-                                    </div>
-                                </Col>
-                                <Col>
-                                    <div className="denominations">
-                                        <div>$1 </div>
-                                        <div>{this.state.One}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>$2 </div>
-                                        <div>{this.state.Two}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>$5 </div>
-                                        <div>{this.state.Five}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>$10 </div>
-                                        <div>{this.state.Ten}</div>
-                                    </div>
-                                </Col>
-                                <Col>
-                                    <div className="denominations">
-                                        <div>$20 </div>
-                                        <div>{this.state.Twenty}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>$50 </div>
-                                        <div>{this.state.Fifty}</div>
-                                    </div>
-                                    <div className="denominations">
-                                        <div>$100 </div>
-                                        <div>{this.state.OneHundred}</div>
-                                    </div>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                <div className="denominations">
-                                    <div>Cash </div>
-                                    <div>
-                                    ${this.state.Cash.toFixed(2)}
-                                    </div>
-                                </div>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                <div className="denominations">
-                                    <div>Debit </div>
-                                    <div>
-                                    ${this.state.Debit.toFixed(2)}
-                                    </div>
-                                </div>
-                                </Col>
-                            </Row>
-                        </Container>
+                        <CashAndBills cashandbills={this.state}/>
                     </Col>
                 </Row>
             </Container> : <Redirect to="/"/>
         );    
     }
+}
+
+
+function CashAndBills(props)
+{
+    // const coins = props.cashandbills.map((number) => 
+    //     <div className="denominations">
+    //         <div>{[number]}</div>
+    //         <div>{number}</div>
+    //     </div>
+    // )
+    return(
+        <Container>
+        <Row>
+            <Col>
+                <div className="denominations">
+                    <div>Penny </div>
+                    <div>{props.cashandbills.Penny}</div>
+                </div>
+                <div className="denominations">
+                    <div>Dime </div>
+                    <div>{props.cashandbills.Dime}</div>
+                </div>
+                <div className="denominations">
+                    <div>Nickel </div>
+                    <div>{props.cashandbills.Nickel}</div>
+                </div>
+                <div className="denominations">
+                    <div>Quarter </div>
+                    <div>{props.cashandbills.Quarter}</div>
+                </div> 
+            </Col>
+            <Col>
+                <div className="denominations">
+                    <div>$1 </div>
+                    <div>{props.cashandbills.One}</div>
+                </div>
+                <div className="denominations">
+                    <div>$2 </div>
+                    <div>{props.cashandbills.Two}</div>
+                </div>
+                <div className="denominations">
+                    <div>$5 </div>
+                    <div>{props.cashandbills.Five}</div>
+                </div>
+                <div className="denominations">
+                    <div>$10 </div>
+                    <div>{props.cashandbills.Ten}</div>
+                </div>
+            </Col>
+            <Col>
+                <div className="denominations">
+                    <div>$20 </div>
+                    <div>{props.cashandbills.Twenty}</div>
+                </div>
+                <div className="denominations">
+                    <div>$50 </div>
+                    <div>{props.cashandbills.Fifty}</div>
+                </div>
+                <div className="denominations">
+                    <div>$100 </div>
+                    <div>{props.cashandbills.OneHundred}</div>
+                </div>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+            <div className="denominations">
+                <div>Cash </div>
+                <div>
+                ${props.cashandbills.Cash.toFixed(2)}
+                </div>
+            </div>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+            <div className="denominations">
+                <div>Debit </div>
+                <div>
+                ${props.cashandbills.Debit.toFixed(2)}
+                </div>
+            </div>
+            </Col>
+        </Row>
+    </Container>
+    );
 }
 
 export default CashRegister;
